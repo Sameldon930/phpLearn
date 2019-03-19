@@ -25,6 +25,6 @@ if(is_uploaded_file($file['tmp_name'])){
     var_dump(move_uploaded_file($file['tmp_name'],'upload/'));
 }else{
     //如果不是 就输出
-    echo"文件不是上传文件！";
+    echo"文件不是上传文件11111！";
 }
 
