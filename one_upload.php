@@ -7,7 +7,6 @@
  */
 header('Content-type:text/html;charset=utf-8');
 echo '<pre>';
-var_dump($_POST);
 // $_FILES变量详解
 /**
  * name是文件的名字
@@ -18,13 +17,18 @@ var_dump($_POST);
  */
 // var_dump($_FILES);//上传用$_FILES来接收
 $file = $_FILES['image'];//$_FILES的一个数组
+
 //判断是否是上传文件
 if(is_uploaded_file($file['tmp_name'])){
     //如果是上传文件  那就移动到某个位置
-    move_uploaded_file($file['tmp_name'],'upload/');
-    var_dump(move_uploaded_file($file['tmp_name'],'upload/'));
+    if(move_uploaded_file($file['tmp_name'],'uploads/'.$file['name'])){//保存到同一级的uploads
+        echo "文件保存成功！";
+    }else{
+        echo "文件保存失败！";
+    }
+
 }else{
     //如果不是 就输出
-    echo"文件不是上传文件11111！";
+    echo"文件不是上传文件！";
 }
 

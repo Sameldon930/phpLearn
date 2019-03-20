@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 多图上传  name的同名上擦混-->
+    <!-- 批量上传同名表单   同个文件名-->
+    <form method="POST" enctype="multipart/form-data" action="many_upload.php">
+        <input type="file" name="image[]" />
+        <input type="file" name="image[]" />
+        <input type="file" name="image[]" />
+        <input type="submit" value="批量上传">
+    </form>
+</body>
+</html>
