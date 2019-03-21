@@ -21,7 +21,6 @@ echo '<pre>';
 
 //同名文件的处理方式
 //判断是否存在并且是否一个数组
-var_dump($_FILES['image']['name']);
 if(isset($_FILES['image']['name']) && is_array($_FILES['image']['name'])){
     $images = array();
     foreach($_FILES['image']['name'] as $key => $value){
