@@ -10,11 +10,12 @@
  * 参数6 array $file 需要上传的文件信息  一维数组 五元素(name,tmp_name,error,type,size)
  */
 
-
+ header('Content-type:text/html;charset=utf-8');
 
 
 function single_upload($file,$allow_type,$path,$allow_format=array(),&$error,$max_size= 2000000){
     //判断所上传的文件是否有效
+    
     if(!is_array($file) ||  !isset($file['error'])){// isset — 检测变量是否已设置并且非 NULL
         //文件无效
         $error = '不是一个有效的上传文件!';
@@ -71,10 +72,10 @@ function single_upload($file,$allow_type,$path,$allow_format=array(),&$error,$ma
     }
     //构造移动后的文件名: 类型_年月日+随机字符串.$ext(也就是文件的格式)
     //strstr — 查找字符串的首次出现
-    $fullname = strstr($file['type']).'/'.date('YYYYmmdd');
+    $fullname = strstr($file['type'],'/',true).'/'.date('YYYYmmdd');
     // 随机字符串
     for($i=0;$i<4;$i++){
-        $fullname .= chr(mt_rand(65.90));
+        $fullname .= chr(mt_rand(65,90));
     }
     //拼凑后缀
     $fullname .= '.'.$ext;
@@ -88,7 +89,7 @@ function single_upload($file,$allow_type,$path,$allow_format=array(),&$error,$ma
         return false;
     }
     //判断移动文件到新位置是否成功
-    if(move_uploaded_file($file['tmp_name'],$path.'/'.$fullname)){// move_uploaded_file — 将上传的文件移动到新位置
+    if(move_uploaded_file($file['tmp_name'],'D:/'.$path.'/'.$fullname)){// move_uploaded_file — 将上传的文件移动到新位置
         //如果成功
         return $fullname;
     }else{
@@ -98,13 +99,13 @@ function single_upload($file,$allow_type,$path,$allow_format=array(),&$error,$ma
 }
 
 //提供数据
-$file = $_FILES['name'];//文件名字
+$file = $_FILES['image'];//文件名字
 $path = 'uploads';//存放目录
 $allow_type = array('image/jpg','image/jpeg','image/gif','image/pjpeg');//文件格式
-$allow_format('jpg','gif','jpeg');
+$allow_format = array('jpg','gif','jpeg');
 $max_size = 800000;
-if(single_upload($file,$allow_type,$path,$allow_format,$error,$max_size)){
-    echo $fullname ;
+if($fullname = single_upload($file,$allow_type,$path,$allow_format,$error,$max_size)){
+    echo $fullname;
 }else{
-    
+    echo $error;
 }
