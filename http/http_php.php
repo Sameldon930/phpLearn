@@ -11,7 +11,7 @@
  //header('Location:文件.php');//立即重定向
 
  //header('Refresh:3;url=文件.php');//3秒后重定向
-
-//  header('Content-disposition:attachment;filename=carrot.jpg');//激活浏览器文件下载对话框 将文件下载到本地
+//激活浏览器文件下载对话框 将文件下载到本地
+//  header('Content-disposition:attachment;filename=carrot.jpg');
 
 

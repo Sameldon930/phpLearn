@@ -59,4 +59,13 @@
 //设定全局访问cookie
 setcookie('globale','global',0,'/');//  斜杠的作用范围是网站的根目录
 
+//cookie尝试保存数组
+setcookie('go[0]','1');
+setcookie('go[1]','2');
+setcookie('go[2]','3');
+setcookie('go[3]','4');
 
+echo '<pre>';
+
+//获取数组中的值
+print_r($_COOKIE['go'][1]);

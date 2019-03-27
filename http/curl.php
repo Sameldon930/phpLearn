@@ -38,6 +38,5 @@ curl_setopt($ch,CURlOPT_POSTFIELDS,array());//post提交的数据 存在数组�
 
 //执行连接
  $content = curl_exec($ch);//
-    echo $content;
 //关闭连接
 curl_close($ch);
