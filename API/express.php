@@ -21,3 +21,5 @@ $res = file_get_contents($url);
 echo '<pre>';
 var_dump(json_decode($res,true));
 
+//微信个码
+//微信固码
