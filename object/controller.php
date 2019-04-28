@@ -28,7 +28,3 @@ class con {
     }
 
 }
-$d = new con('1','2','3');
-echo $d->a;
-echo $d->b;
-echo $d->c;
