@@ -7,7 +7,6 @@ echo  111;
 }
 
 $a = new know();
-echo 111;
 
 print_r($a->b());//111
 print_r($a->ccc);//123

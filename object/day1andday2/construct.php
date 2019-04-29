@@ -23,5 +23,13 @@ class construct{
     }
 
 }
-$a  = new construct('1','') ;
-var_dump ($a->aaa());
+class B extends construct{
+    public function __construct()
+    {
+        echo 'B中的构造方法！';
+        parent::__construct(100,2);//调用父类的构造方法
+        
+    }
+}
+$a  = new B() ;
+var_dump ($a);
