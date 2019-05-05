@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #ccc;font-size: 14px;
+        }
+        body,ul,li{
+            margin: 0px;padding: 0px;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .box{
+            width: 1000px;margin: 0px auto;border: 1px solid red;background: white;
+        }
+        header{
+            height: 60px;line-height: 60px;background-color: #990000;text-align: center;font-size: 36px;color: white;font-family: 微软雅黑;
+        }
+        nav{
+            height: 40px;line-height: 40px;
+        }
+        nav li{
+            float: left;border: 1px solid red; background: #99cc66;color: white;padding:0px 10px;font-weight: bold;font-size: 18px;font-family: 黑体; 
+        }
+        aside{
+            width: 190px;
+            height: 500px;
+            background-color: #663399;
+            float:right;
+        }
+        section{
+            float:left;
+
+            width: 80%;
+            height: 500px;
+            border: 1px solid red;
+        }
+        footer{
+            height: 40px;line-height: 40px;text-align: center;background: #990000;color: white;clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <header>12312312</header>
+        <nav>
+            <ul>
+                <li>网站首页</li>
+                <li>公司简介</li>
+                <li>产品中心</li>
+                <li>售后服务</li>
+                <li>联系我们</li>
+            </ul>
+        </nav>
+        <section>
+            <article>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp; <details> 对配置文件进行分析： </details><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MONGO_URL：表示连接MongoDB数据库的主机地址 <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MONGO_DB：&nbsp;&nbsp;表示数据库的名字 <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MONGO_TABLE：表示数据表的名字 <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEY_WORD：&nbsp;&nbsp;进行搜索的关键字 <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SERVICE_ARGS： <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了更好、更快的抓取数据并存放到数据库中； <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<summary>我们不需要在浏览器中加载图片，并开启磁盘缓冲</summary></p>
+            </article>
+            <progress id="pro" value="80" max="100"></progress>
+        </section>
+        <aside>
+
+        </aside>
+        <!-- 音乐标签   controls是否显示控制面板 autoplay是否自动播放  src音频文件 -->
+        <audio controls="controls"  autoplay="autoplay"  src="../../hhhh.mp3"></audio>
+        <!-- 视频标签   controls是否显示控制面板 src音频文件 -->
+
+        <video src=""></video>
+        <footer>dadasda</footer>
+    </div>
+    <script>
+        // 进度条特效
+        var pro = document.getElementById('pro');
+        var  i = 0;
+        window.setInterval("start()",100)
+        function start(){
+            pro.value = i;
+            i++;
+            if(pro.value == pro.max){
+                clearInterval();
+            }
+        }
+    </script>
+</body>
+</html>
