@@ -21,7 +21,7 @@
  * 子类实现抽象父类的方法 访问控制修饰符的范围不能降低 且方法的参数必须一致 相当于重写
  */
 
- abstract class Animal {
+abstract class Animal {
     protected $blood = 100;
     function Attack(){
         echo '发动攻击';

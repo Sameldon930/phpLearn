@@ -17,7 +17,7 @@
  * 当对一个对象未定义的静态方法进行调用的时候 会自动调用预先定义好的静态魔术方法
  */
 
- class A{
+class A{
      public function a1(){
          echo '<p>a1实例方法';
      }

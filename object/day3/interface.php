@@ -26,7 +26,7 @@
 
  //演示接口的使用
 
- interface Player{
+interface Player{
      function play();
      function next();
      function prev();

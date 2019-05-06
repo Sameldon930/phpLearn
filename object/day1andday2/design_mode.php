@@ -13,7 +13,7 @@ class A{}
 
 class B{}
 
-    //用来生产各种类的对象 因为类只是直接调用方法别无他用  因此用静态方法
+//用来生产各种类的对象 因为类只是直接调用方法别无他用  因此用静态方法
 class factory{
     static function GetObject( $class_name){
         $obj = new $class_name();
