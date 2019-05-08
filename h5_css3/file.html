@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>两个文件上传的按钮</title>
+</head>
+<body>
+    <!-- 第一个上传css  设置div样式
+    第二个上传js   设置div时间及样式 -->
+    <input type="file" id="f1">
+    <input type="file" id="f2">
+    <script>
+        var f1 = document.querySelector('#f1');
+        //触发事件
+        f1.onchange = function(){
+            //获取读取的文件
+            var fl1 = this.files[0]
+            //读取文件 创建读取文件的对象
+            var read = new FileReader()
+            //读取文件
+            read.readAsText(fl1); 
+            //开始读取文件的加载的事件
+            read.onload=function(){
+                //获取读取文件的内容
+                var result = read.result;
+            }
+        };
+    </script>
+</body>
+</html>

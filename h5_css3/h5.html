@@ -38,16 +38,45 @@
     <mark></mark>
     <!-- 进度条 -->
     
-    <form action="login.php">
-        <!-- 自带邮箱验证 -->
-        <input type="email" name="email">
+    <!-- autocomplete  关闭智能提示 -->
+    <!-- novalidate   关闭验证的功能 -->
+    <!-- autofocus  自动把鼠标的光标定位到当前位置 -->
+    <!-- placeholder  提示输入框输入什么内容 -->
+    <!-- form 属性 值填写的是 在form标签配置的id的值 -->
+    <form action="login.php" autocomplete="off" novalidate id="zzs">
+        <!-- 自带邮箱验证 --> 
+        <input type="email" name="email"  >
         <!-- 自带颜色选择器 -->
         <input type="color" name="color">
         <!-- 年月日选择  -->
-        <input type="date" name="date">
+        <input type="date" name="date" >
 
 
         <input type="submit" value="提交">
     </form>
+    <input type="email" name="email" form="zzs"  autofocus>
+    
+    <!-- datalist是隐藏的  需要配置id的值 等于下滑选择的输入框list属性的值  -->
+
+    <input type="text" list='zzs_list'>
+    <datalist id="zzs_list">
+        <option value="www.baidu.com">我</option>
+        <option value="www.baidu.com">我</option>
+        <option value="www.baidu.com">我</option>
+        <option value="www.baidu.com">我</option>
+    </datalist>
+
+
+    <!-- 自定义属性 -->
+    <div id="dv" data-name="帅哥" data-age="20" data-user="男"></div>
+    <script>
+        var dt = document.getElementById('dv').dataset;
+        console.log(dt);//获取上面那个自定义属性的对象
+        console.log(dt.name);
+        console.log(dt.age);
+        console.log(dt.user);
+
+    </script>
+
 </body>
 </html>
