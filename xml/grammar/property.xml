@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- xml的属性 -->
+<root>
+    <man>
+        <name>asdad</name>
+        <age>12</age>
+        <height>180</height>
+    </man>
+    <woman>
+        <name eys="5.0" age="44" height="423">cvcvbvbc</name>
+    </woman>
+<man><name>玉帝</name><age>999</age></man><man><name>玉帝</name><age>999</age></man><man><name>玉帝</name><age>999</age></man></root>

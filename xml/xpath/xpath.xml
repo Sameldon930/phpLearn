@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <man>
+        <name>张泽山</name>
+        <age>12</age>
+    </man>
+    <man>
+        <name>蔡路平</name>
+        <age>23</age>
+    </man>
+    <man>
+        <name>擦达到</name>
+        <age>12</age>
+    </man>
+</root>
