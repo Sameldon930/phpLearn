@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var s = '1221aadbda93kj 2992kndkaj3223'
+        //表示一个数字  两个\d表示两个连着的数字
+        //var reg = /\d\8/
+        //匹配1221 2332这种类型的 组合
+       // 这个规则 表示 第一位是数字 第二位也是数字 第三位引用第2位的规则  第四位引用第一位的规则  这就是反向引用
+     //   var reg = /(\d)(\d)\2\1/g
+        var s2 = 'aadaslkddccajdaijjkk'
+       // 查找形如 AABB ccdd 的字符串
+        //var reg = /([A-Z])\1([A-Z])\2/gi
+        var reg  = /[^0-9]/g
+        //返回第一次出现的位置 从0开始算起
+        console.log(s2.match(reg))
+
+    </script>
+</body>
+</html>

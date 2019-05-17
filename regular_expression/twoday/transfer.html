@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var s  = 'https://www.baidu.com'
+        //匹配域名  \w+ 匹配大小写字母数字下划线1到多 然后反斜杠\转义/ 然后\w+匹配大小写字母数字下划线1到多 然后反斜杠\转义. 然后\w+匹配大小写字母数字下划线1到多
+        var reg  = /\w+:\/\/\w+\.\w+\.\w+/
+        console.log(s.match(reg))
+
+        var e = 'qq@qq.com'
+        var reg2  = /\w+\@\w+\.\w+/
+
+        console.log(e.match(reg2))
+
+
+    </script>
+</body>
+</html>
