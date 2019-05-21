@@ -14,5 +14,9 @@
 class normal{
     const zzs = 111;
 }
+const a = 'zzzs';
+var_dump(a);
+
+
 $n = new normal();
 echo $n::zzs;
