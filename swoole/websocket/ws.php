@@ -32,6 +32,12 @@ class WS{
      */
     public function onOpen($ws,$request){
         var_dump($request->fd);
+        if($request->fd == 1){
+            //两秒执行一次
+            swoole_timer_tick(2000,function($timer_id){
+                echo "2s:timerId:{$timer_id}";
+            });
+        }
     }
 
     /**
@@ -42,9 +48,14 @@ class WS{
         echo "ser-push-message:{$frame->data}\n";
         $data = [
             'task'=>1,
-            'fd'=>$frame->fd,
+            'fd'=>$frame->fd, 
         ];
-        $ws->task($data);//执行方法onTask
+       // $ws->task($data);//执行方法onTask
+       //每隔五秒去执行
+        swoole_timer_tick(5000,function()use($ws,$frame){
+            echo "5s-after\n";
+            $ws->push($frame->fd,"server-time-after:");
+        });
         $ws->push($frame->id,"server-push:".date("Y-m-d H:i:s"));
     }
 

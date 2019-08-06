@@ -1,5 +1,5 @@
 <?php
-$http = new swoole_http_server("0.0.0.0",8899);
+$http = new swoole_http_server("172.16.22.157",9001);
 
 
 $http->set([
@@ -7,6 +7,15 @@ $http->set([
     'document_root'=>"/data/www"
 ]);
 $http->on('request',function($request,$response){
+    $content = [
+        'date:'=>date("Ymd H:i:s"),
+        'get:'=>$request->get,
+        'post:'=>$request->post,
+        'header:'=>$request->header
+    ];
+    swoole_async_writefile(__DIR__."/access.log",json_encode($content),function($filename){
+        echo '12';
+    },FILE_APPEND);
     $response->end("sss".json_encode($request->get));
 });
 $http->start();
