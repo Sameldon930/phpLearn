@@ -1,17 +1,11 @@
 <?php
 header('Content-Type:application/json;charset=utf-8;');
-$url = 'api.xjzcdn.bianzhao168.com/Pay_Trade_query.html';
-
-$arr = [];
-$arr['pay_memberid'] = '10012';
-$arr['pay_orderid'] = '201903271620070001';
-$arr['pay_md5sign'] = '7359867CD776B3E3145243222F65C6BB';
-$o = "";
-foreach ( $arr as $k => $v )
-{
-    $o.= "$k=" . urlencode( $v ). "&" ;
-}
-$arr = substr($o,0,-1);
+$url = 'http://www.future_serve.com/index.php';
+$arr = [
+    'nozzle'=>'find_history_order',
+    'token'=>'88fa61fc9e086640d97b22f60ea74d05',
+    'date'=>'2019-07-31'
+];
 // var_dump($arr);
 
 $res = post_json_data($url, $arr);
