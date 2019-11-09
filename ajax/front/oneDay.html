@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // //主流浏览器创建对象  firefox chrome safari opera
+        var xhr  =   new  XMLHttpRequest ()
+    </script>
+    <!-- ********************************************** -->
+
+    <h2>发起对服务器的请求</h2>
+    <!-- 点击触发f1方法 -->
+    <input type="button" value="发起" onclick="f1()">
+    <!-- 发起请求 -->
+    <script>
+        function f1(){
+            //创建对象
+            var xhr =  new XMLHttpRequest()
+            //创建新的http请求
+            //open方法（'请求方式get/post',url请求地址）
+            xhr.open('get','../backend/link.php')   
+            //发送请求
+            //send方法 （get-null/post给服务器提交数据）
+            xhr.send(null)
+             
+        }
+    </script>
+
+    <!-- ********************************************** -->
+    
+    <h2>接收服务器返回的信息</h2>
+        <input type="button" value="接收" onclick="f2()">
+        <div id="result"></div>
+     <!-- 发起请求并接收返回信息 -->
+    <script>
+        /*
+         responseText 以字符串形式接收服务器端返回的信息
+         readyState 状态
+            0  刚创建的ajax对象
+            1  已经调用open方法
+            2  已经调用send方法
+            3  已经返回部分数据
+            4  请求完成 数据返回完整
+         onreadystatechange ajax事件 当readyState的值发生改变的时候触发执行
+            为了获得更多的状态 要在创建对象之后进行设置
+        */
+        function f2(){
+            
+            var  xhr =  new XMLHttpRequest()
+            // 设置ajax事件
+            xhr.onreadystatechange = function(){
+                console.log(xhr.readyState)//可以获取1234 四个状态值
+                // 当值为4 返回数据
+                //接收数据   判断状态
+                if(xhr.readyState == 4 ){
+                    //把接收到的数据 渲染到页面上
+                    document.getElementById('result').innerHTML = xhr.responseText              
+                }
+            }
+            xhr.open('get','../backend/back.php')
+            //send方法 （get-null/post给服务器提交数据）
+            xhr.send(null)
+            
+        }
+    </script>
+
+    <!-- ********************************************** -->
+    <h2>用户名get数据库校验</h2>
+    用户名<input type="text" name="" id="user" onblur="checkGet()">
+    手机号码<input type="mobile" name="" id="tel">
+    <script>
+        //用户名校验
+        function checkGet(){
+            //获取用户名信息
+            var name = document.getElementById('user').value
+            //对传递的数据含有特殊符号进行编码处理
+            name = encodeURIComponent(name)
+            //校验用户名
+            var xhr  = new XMLHttpRequest()
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    alert(xhr.responseText)
+                }
+            }
+            xhr.open('get','../backend/get.php?name='+name)//提交数据
+            //send方法 （get-null/post给服务器提交数据）
+            xhr.send(null)
+
+        }
+
+    </script>
+
+    <!-- ********************************************** -->
+    <h2>用户名post数据库校验</h2>
+    用户名<input type="text"  id="username" onblur="checkPost()">
+    手机号码<input type="mobile" id="mobile">
+    <script>
+        //用户名校验
+        function checkPost(){
+            //获取用户名信息
+            var name = document.getElementById('username').value;
+            //对传递的数据含有特殊符号进行编码处理
+            name = encodeURIComponent(name);
+            //将数据变成 请求字符串
+            var info = "name="+name+"&age=12";
+            //校验用户名
+            var xhr  = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    alert(xhr.responseText)
+                }
+            }
+            xhr.open('post','../backend/post.php');//提交数据
+            //post方式传递数据是模仿form表单进行传递
+            xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded") ;
+            //send方法 （get-null/post给服务器提交数据）
+            xhr.send(info);
+
+        }
+
+    </script>
+</body>
+</html>

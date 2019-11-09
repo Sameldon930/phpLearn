@@ -11,6 +11,6 @@ class A{
     public $na = 'zzs';
 }
 $a = new A();
-$b = clone $a;
+$b = clone $a;//浅拷贝
 var_dump($a);//1号对象
 var_dump($b);//2号对象

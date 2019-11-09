@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var s = 'asdasfojh123 1i8 812he1id uihda812nek';
+
+        var one = /\w/ //匹配数字字母下划线
+        var two = /[1-3]/  //查找1-3
+
+
+
+        var str = '我的QQ是1071119121，另外一个是82624266，我的手机号是18250305197，我的身份证是350626199511200010';
+
+        //匹配QQ号  首位不能是0开头  最多位 10  最少位5 所以后面的数字是 还有4位或者10位
+        var reg_qq = /[1-9]\d{1,}/g
+
+        console.log(str.match(reg_qq))
+    </script>
+</body>
+</html>

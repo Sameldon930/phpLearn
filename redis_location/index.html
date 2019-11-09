@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="content" onclick="showPosition()" >
+    福建省漳州市
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script>
+        getLocation();
+        function getLocation() {
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showPosition,showError);
+            }else{
+                alert('浏览器不支持定位！');
+            }
+        }
+
+        //位置获取
+        function  showPosition(){
+            var latlon = position.coords.latitude + ',' + position.coords.longitude;
+            var name = prompt("请输入店铺名");
+            var url = " http://127.0.0.1/redis_location/near.php?latlon=" + latlon + '&name='+ name;
+            console.log(url)
+            $.ajax({
+                type:"GET",
+                url:url,
+                success:function () {
+                    $('#content').append(json);
+                }
+            })
+        }
+
+        function showError() {
+            switch(error.code){
+                case error.PERMISSION_DENIED:
+                    alert("定位失败，用户拒绝请求地理定位");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("定位失败，信息不可用");
+                    break;
+                case error.TIMEOUT:
+                    alert("定位失败，请求获取用户位置超时");
+                    break;
+                case error.UNKNOWN_ERR:
+                    alert("定位失败，系统失效");
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

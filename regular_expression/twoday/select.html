@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var s = 'hello,when i am working,do not coming '
+
+        //找出ing结尾的字符串  working  coming
+        var reg = /\b\w+ing\b/g
+        //找出ing结尾的字符串的前缀  work   com
+        var reg1 = /\b\w+(?=ing\b)/g
+        //把不是ing结尾的单词 找出来
+        var reg2 = /\b\w+(?!ing)\w{3}\b/g
+
+        console.log(s.match(reg2))
+    </script>
+</body>
+</html>

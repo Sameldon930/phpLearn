@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>接受json信息</h2>
+    <input type="button" value="获取" onclick="f1()">
+    <script>
+        function f1(){
+            var xhr = new XMLHttpRequest()
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    //把接受到的字符串变成j具有object的json信息
+                    eval("var info ="+xhr.responseText)
+                    console.log(info)
+                    console.log(info.id)
+                    console.log(info.name)
+                    console.log(info.age)
+
+                }
+            }
+            xhr.open('get','../backend/one.php')
+            xhr.send(null)
+        }
+    </script>
+
+
+    <script>
+        //js中把字符串string变成对象 object
+        var obj = "{name:'kitty',age:5}";
+        //eval(字符串参数)  字符串参数变成表达式运行
+        eval("var cat="+obj)
+        console.log(cat)
+    </script>
+</body>
+</html>

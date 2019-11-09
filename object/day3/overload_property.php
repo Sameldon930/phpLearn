@@ -66,4 +66,12 @@ var_dump(isset($a->p1));
 unset($a ->p3);
 var_dump($a->prop_list);
 
-
+class Tese{
+    private $ab = 'ab';
+}
+$a = new Tese();
+var_dump(isset($a->ab));
+date_default_timezone_set('PRC');
+$time = strtotime(date("Y-m-d"),time());
+$time = mktime(0,0,0,date('m'), date('d'), date('Y'));
+var_dump($time);
