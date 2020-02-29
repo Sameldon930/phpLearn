@@ -6,20 +6,21 @@
  */
 
 //构建Server对象   内网
-$server = new Swoole\Server('172.16.22.157',9501);
+$server = new Swoole\Server('0.0.0.0',9501);
 
 //设置运行时参数
 $server->set(array(
 //    'daemonize' => true,//后台运行
+    'worker_num'=>8,
+    'max_request' =>10000
 ));
-
-
 /**
  * //注册事件回调函数  -----事件驱动--连接--onConnect
  * $server是服务端的对象
  * $fd是连接的文件描述符 发送数据和关闭连接时需要此参数
+ * $reactor_id 线程id
  */
-$server->on('connect',function ($server,$fd){
+$server->on('connect',function ($server,$fd,$reactor_id){
     echo '有新的客户端连接，连接标识为--------'.$fd.PHP_EOL;
 });
 
@@ -43,7 +44,7 @@ $server->on('close',function ($server,$fd){
     echo '客户端关闭-------------'.$fd.PHP_EOL;
 });
 
-//启动服务器
+//启动服务器  可以用telnet 地址  端口 进行测试访问 看是否接受到数据
 $server->start();
 
 

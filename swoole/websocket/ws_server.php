@@ -2,7 +2,7 @@
 /**
  * 创建websocket服务器 
  */
-$server = new Swoole\WebSocket\Server("172.16.22.157", 8812);
+$server = new Swoole\WebSocket\Server("0.0.0.0", 9504);
 //定义函数  onOpen
 //监听websocket连接打开事件
 $server->on('open','onOpen');

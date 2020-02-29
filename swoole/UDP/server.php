@@ -3,7 +3,7 @@
  * 创建 UDP服务端
  */
 //构建Server对象   内网
-$server = new Swoole\Server('172.16.22.157',9502,SWOOLE_PROCESS,SWOOLE_SOCK_UDP);
+$server = new Swoole\Server('0.0.0.0',9502,SWOOLE_PROCESS,SWOOLE_SOCK_UDP);
 
 //设置运行时参数
 $server->set(array(

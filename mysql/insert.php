@@ -1,25 +1,22 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: zzs-pc
+ * Date: 2019/11/17
+ * Time: 15:30
+ */
+
+$db = new mysqli('localhost','root','','myLearn');
 
 
-//数据库新增数据  
+$a = $db->select_db('myLearn');
 
+$author = 'lhl';
+$title = 'linhailan';
+$price = 1314;
 
-//引入初始文件   mysql.php
-include_once 'mysql.php';
+$query = "insert into books values('$author','$title','$price')";
 
-//组织mysql指令
-
-$pubtime = time();
-$sql = "insert into  n_news values(null,'zzssadasd',1,'1312dasdasdadas','aaa',{$pubtime})" ;
-
-//执行指令
-if(mysql_query($sql)){
-    //操作成功 通常是返回自增长id给用户
-    echo '数据插入成功！';
-}else{
-    echo '数据插入失败！';
-}
-
-
-
-?>
+$result = $db->query($query);
+var_dump($result);
+echo $db->affected_rows;

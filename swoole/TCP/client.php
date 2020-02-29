@@ -20,12 +20,18 @@ $client = new Swoole\Client(SWOOLE_SOCK_TCP,SWOOLE_SOCK_SYNC);//创建tcp socket
 /**
  * 参数1 地址  参数2 端口  参数3 连接时间
  */
-if($client->connect('172.16.22.157',9501,5000)){//如果连接成功
-    //客户端发送数据
-    $client->send('我是张泽山');
+if(!$client->connect('127.0.0.1',9501)){//如果连接失败
+    echo "fail";
+    exit;
 };
 
-//接收返回信息  从服务器端接收数据
+//在命令行输入信息
+fwrite(STDOUT,"请输入消息：");
+$msg = trim(fgets(STDIN));
+//将命令行输入的消息 推送给服务端
+$client->send($msg);
+
+//接收服务端推送给我们的数据
 $response = $client->recv();
 echo $response.PHP_EOL;
 

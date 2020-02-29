@@ -24,7 +24,7 @@
  * cookie作用范围:
  * 
  * 上层cookie只能访问这一层的 不能访问下一层的 
- * 下层cooki可以范围跟上层的
+ * 下层cookie可以范围跟上层的
  * 
  */
 
@@ -69,3 +69,9 @@ echo '<pre>';
 
 //获取数组中的值
 print_r($_COOKIE['go'][1]);
+
+/**
+ * 查看cookie内容
+ * 参数四个 1lifetime 2path 3domain 4secure
+ */
+session_get_cookie_params();

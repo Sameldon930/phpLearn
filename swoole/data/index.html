@@ -8,5 +8,29 @@
 </head>
 <body>
    该页面是通过http服务访问
+   <script>
+       var wsUrl = "ws://47.107.75.187:9504";
+       var websocket = new WebSocket(wsUrl);
+       //实例化对象的onopen属性
+       websocket.onopen = function(evt){
+           console.log("success");
+           websocket.send("hello");
+       }
+       //实例化 onmessage属性
+       websocket.onmessage = function(evt){
+           console.log(evt.data);
+       }
+       //onclose
+       websocket.onclose = function(evt){
+           console.log("close");
+       }
+       //onerror
+       websocket.onerror = function(evt,a){
+           console.log("error"+evt.data)
+       }
+
+
+
+   </script>
 </body>
 </html>
